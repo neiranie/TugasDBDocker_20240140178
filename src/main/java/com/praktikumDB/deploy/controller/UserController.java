@@ -1,7 +1,8 @@
 package com.praktikumDB.deploy.controller;
 
-import com.praktikumDB.deploy.service.UserService;
+
 import com.praktikumDB.deploy.model.User;
+import com.praktikumDB.deploy.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,9 +12,10 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
-    public userController(UserService userService) {
-        this.userService = UserService;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
+
 
     @PostMapping
     public String createUser(@RequestBody User request){
@@ -26,7 +28,7 @@ public class UserController {
     }
 
     @DeleteMapping("/id")
-    public String deleteUser(@PathVariable String Id){
+    public String deleteUser(@PathVariable String id){
         userService.deleteUser(id);
         return "user deleted successfully";
     }

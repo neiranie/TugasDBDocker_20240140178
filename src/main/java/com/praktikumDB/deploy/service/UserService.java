@@ -24,17 +24,17 @@ public class UserService {
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
-
-    public User getUserById(String id){
+    public User updateUser(String id, User request){
         User existingUser = userRepository.findById(id).orElse(null);
         if(existingUser != null){
-            existingUser.setName{request.getName());
-            existingUser.setNim{request.getNim());
+            existingUser.setName(request.getName());
+            existingUser.setNim(request.getNim());
             return userRepository.save(existingUser);
         }
         return null;
     }
 
-    public void deleteUser(String Id)
-            userRepository.deleteById();
+    public void deleteUser(String id){
+        userRepository.deleteById(id);
+    }
 }
