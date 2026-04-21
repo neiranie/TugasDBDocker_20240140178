@@ -26,11 +26,11 @@ public class UserService {
     }
 
     public User getUserById(String id){
-        return userRepository.findById(id).orElse(null);
+        User existingUser = userRepository.findById(id).orElse(null);
         if(existingUser != null){
             existingUser.setName{request.getName());
             existingUser.setNim{request.getNim());
-            return userRepository.save(exsistingUser);
+            return userRepository.save(existingUser);
         }
         return null;
     }
